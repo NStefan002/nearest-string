@@ -55,22 +55,22 @@ def main():
     args = parser.parse_args()
 
     central, strings = generate_instance(
-        args.n, args.m, list(args.alphabet), args.radius
+        args.n, args.m, list(args.a), args.r
     )
 
-    with open(args.output, "w") as f:
-        f.write(args.alphabet + "\n")
+    with open(args.o, "w") as f:
+        f.write(args.a + "\n")
         for s in strings:
             f.write(s + "\n")
 
     print("Instance generated:")
     print(f"  n = {args.n}")
     print(f"  m = {args.m}")
-    print(f"  alphabet = {args.alphabet}")
-    if args.radius is not None:
-        print(f"  hidden optimal radius ≤ {args.radius}")
+    print(f"  alphabet = {args.a}")
+    if args.r is not None:
+        print(f"  hidden optimal radius ≤ {args.r}")
         print(f"  (central string: {central})")
-    print(f"  saved to: {args.output}")
+    print(f"  saved to: {args.o}")
 
 
 if __name__ == "__main__":
